@@ -1,49 +1,30 @@
-#include <stdio.h>
-#include <windows.h>
+# include <stdio.h>
 
-int sec = 0;
-int min = 0;
-int hour_12 = 12;
-int hour_24 = 12;
-int PMhour_12 = 0;
-int ampm = 0;
+/*
+	구조체, struct 에 대한 이해.
+	여러 자료형(int, double 등)을 하나로 묶어서 표현할 수 있도록 함.
+	struct [자료형] 죽, 사용자 정의 자료형을 만듦.
 
+	구조체를 정의 하는 방법.
+
+*/
+
+// x, y점은 서로 독립된 것이 아니라, 하나의 정보를 표현한다. 늘 함께함.
+struct point	//	데이터를 묶겠다. 그리고 이름을 짓는다.  x,y의 포인트 점 생성.
+{
+	int xpos;		
+	int ypos;
+};
+
+struct person
+{
+	char name[20];		// 이름을 저장
+	char phoneNum[20];	// 전화번호를 저장
+	int age;			// 나이를 저장.
+};
 
 int main()
 {
-	while (1)
-	{
-		if (++sec == 60)
-		{
-			sec = 0;
-			if (++min == 60)
-			{
-				min = 0;
-				if (++hour_12 == 13)      // Over at 12:59:59
-				{
-					hour_12 = 1;
-				}
-
-				if (++PMhour_12 == 12)
-				{
-					PMhour_12 = 0;
-				}
-				if (hour_24 == 12 && min == 0 && sec == 0)
-					ampm = 1;
-				else if (hour_24 == 23 && min == 0 && sec == 0)
-					ampm = 0;
-
-				if (++hour_24 == 24)
-				{
-					hour_24 = 0;
-				}
-			}
-
-		}
-		printf("ampm: %02d, hour_24: %02d, PMhour: %02d, hour_12: %02d ", ampm, hour_24, hour_12,PMhour_12);
-		printf("\n");
-	}
-
 
 	return 0;
 }
