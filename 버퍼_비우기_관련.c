@@ -27,3 +27,12 @@ void ClearLineFromReadBuffer(void)
 {
 	while (getchar() != '\n');		//	문자열의 끝 '엔터키'가 들어올때까지 계속 Read가 되어짐. 즉, 버퍼의 값을 사용하지 않고 그냥 버려짐.
 }
+
+/*
+	함수 원형: int fflush(FILE * stream);
+	성공시 0을 반환, 실패시 EOF 반환
+	
+	int fflush(stdout);		//	모니터로 출력 될 버퍼를 비우는 함수! (stdout: 모니터 출력을 의미)
+							//	**버퍼를 비운다는 것은, 목적지로 빨리 보냄(다 출력시켜라 를 의미)
+
+*/
