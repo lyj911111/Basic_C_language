@@ -23,6 +23,23 @@ struct person
 	int age;			// 나이를 저장.
 };
 
+///////////// 구조체 사용 다른 방법 /////////////////////////
+struct point
+{
+	int xpos;
+	int ypos;
+}pos1, pos2, pos3 ;
+
+struct point
+{
+	int xpos;
+	int ypos;
+};
+struct point pos1, pos2, pos3;  
+
+////////////// 두 구조체 선언이 같은 선언임 ///////////////////////////////////
+
+
 int main()
 {
 
