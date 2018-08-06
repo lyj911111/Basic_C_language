@@ -3,8 +3,44 @@
 /*
 	구조체 포인터 선언하기, 활용하기.
 	구조체 포인터 선언후 접근해 값을 바꾸기.
+	예제 1. : 구조체 포인터의 -> 연산자 사용법.
+	예제 2. : 구조체내 구조체 포인터 선언하기
+	예제 3. : (빈번하지 않음) 구조체들 끼리 참조할때, "자료구조"에서 사용.
+	+구조체 변수 주소값과 (&point)와 구조체 변수 첫번째 주소값(&point.xpos)는 일치한다.
 */
 
+// 예제 3.
+struct point
+{
+	int xpos;
+	int ypos;
+	struct point * ptr;			// ** 구조체 내 같은 포인터를 선언할 수 있음.
+};
+
+int main()
+{
+	struct point pos1 = { 1, 1 };
+	struct point pos2 = { 2, 2 };
+	struct point pos3 = { 3, 3 };
+
+	pos1.ptr = &pos2;	//	pos1과 pos2를 연결
+	pos2.ptr = &pos3;	//	pos2와 pos3을 연결
+	pos3.ptr = &pos1;	//	pos3과 pos1을 연결
+
+	printf("점의 연결 관계... \n");
+	printf("[%d %d]와 [%d %d]의 연결\n", pos1.xpos, pos1.ypos, pos1.ptr->xpos, pos1.ptr->ypos);
+	printf("[%d %d]와 [%d %d]의 연결\n", pos2.xpos, pos2.ypos, pos2.ptr->xpos, pos2.ptr->ypos);
+	printf("[%d %d]와 [%d %d]의 연결\n", pos3.xpos, pos3.ypos, pos3.ptr->xpos, pos3.ptr->ypos);
+
+	return 0;
+}
+
+
+
+
+
+// 예제2.
+/*
 struct point
 {
 	int xpos;
@@ -31,9 +67,10 @@ int main()
 
 	return 0;
 }
+*/
 
 /*
-// 예제
+// 예제 1.
 int main()
 {
 	// 구조체 자료형으로 변수 선언하기.
