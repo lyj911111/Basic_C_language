@@ -10,7 +10,7 @@
 */
 
 //선언 예제.
-/*
+
 typedef int INT;
 typedef int * PTR_INT;
 
@@ -49,8 +49,8 @@ int main()
 	Point pos2;		//	<= typedef를 선언하고 이후 구조체를 선언하는 방식. (struct를 쓸 필요가 없다)
 
 	return 0;
-}*/
-
+}
+/////////////////////////////////////////////////////////////////////////////////////////////
 // 구조체 정의와 typedef 선언 관련 예제.
 
 typedef struct point
